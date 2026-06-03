@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Statistika Penjualan Ayam Potong</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
+    margin:0;
+    padding:20px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    color:#2c3e50;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    margin:10px 0;
+    border-radius:10px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table, th, td{
+    border:1px solid #ddd;
+}
+
+th{
+    background:#27ae60;
+    color:white;
+}
+
+th, td{
+    padding:10px;
+    text-align:center;
+}
+
+.stat{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.box{
+    flex:1;
+    background:#27ae60;
+    color:white;
+    padding:15px;
+    border-radius:10px;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Statistika Penjualan Ayam Potong</h1>
+
+<div class="stat">
+    <div class="box">
+        <h3>Total Penjualan</h3>
+        <p id="total"></p>
+    </div>
+
+    <div class="box">
+        <h3>Rata-rata</h3>
+        <p id="rata"></p>
+    </div>
+
+    <div class="box">
+        <h3>Penjualan Tertinggi</h3>
+        <p id="max"></p>
+    </div>
+
+    <div class="box">
+        <h3>Penjualan Terendah</h3>
+        <p id="min"></p>
+    </div>
+</div>
+
+<div class="card">
+<table>
+    <tr>
+        <th>Hari</th>
+        <th>Penjualan (Ekor)</th>
+    </tr>
+    <tr><td>Senin</td><td>120</td></tr>
+    <tr><td>Selasa</td><td>135</td></tr>
+    <tr><td>Rabu</td><td>110</td></tr>
+    <tr><td>Kamis</td><td>145</td></tr>
+    <tr><td>Jumat</td><td>160</td></tr>
+    <tr><td>Sabtu</td><td>180</td></tr>
+    <tr><td>Minggu</td><td>170</td></tr>
+</table>
+</div>
+
+</div>
+
+<script>
+const data = [120,135,110,145,160,180,170];
+
+const total = data.reduce((a,b)=>a+b,0);
+const rata = (total/data.length).toFixed(2);
+const max = Math.max(...data);
+const min = Math.min(...data);
+
+document.getElementById("total").innerHTML = total + " Ekor";
+document.getElementById("rata").innerHTML = rata + " Ekor";
+document.getElementById("max").innerHTML = max + " Ekor";
+document.getElementById("min").innerHTML = min + " Ekor";
+</script>
+
+</body>
+</html>
